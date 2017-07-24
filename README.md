@@ -14,8 +14,8 @@ var timer =null,
 	prev = byId("prev"),
 	next = byId("next"),
 	menuItems = byId("menu-content").getElementsByClassName("menu-item"),
-    subMenu = byId("sub-menu"),
-    subItems = subMenu.getElementsByClassName("inner-box");
+    	subMenu = byId("sub-menu"),
+    	subItems = subMenu.getElementsByClassName("inner-box");
 
 //清除定时器，停止自动播放
 function stopAutoPlay() {

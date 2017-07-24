@@ -6,7 +6,7 @@
 function byId(id){
 	return typeof(id) ==="string"?document.getElementById(id):id;
 }
-var timer =null,
+  var timer =null,
 	index = 0,
 	pics = byId("banner").getElementsByTagName("div"),
 	dots = byId("dots").getElementsByTagName("span"),
@@ -14,8 +14,8 @@ var timer =null,
 	prev = byId("prev"),
 	next = byId("next"),
 	menuItems = byId("menu-content").getElementsByClassName("menu-item"),
-    	subMenu = byId("sub-menu"),
-    	subItems = subMenu.getElementsByClassName("inner-box");
+  subMenu = byId("sub-menu"),
+  subItems = subMenu.getElementsByClassName("inner-box");
 
 //清除定时器，停止自动播放
 function stopAutoPlay() {
@@ -26,12 +26,12 @@ function stopAutoPlay() {
 
 //图片自动轮播
 function startAutoPlay(){
-	timer = setInterval(function(){
-		index++;
-		if(index>=size){
+timer = setInterval(function(){
+  index++;
+	if(index>=size){
 			index = 0;
 		}
-		changeImg();
+	changeImg();
 	},3000)
 }
 
@@ -45,9 +45,9 @@ function changeImg(){
 }
 
 function slideImg(){
-	// var main = byId("main");
+//var main = byId("main");
 	var banner = byId("banner");
-    var menuContent = byId("menu-content");
+  var menuContent = byId("menu-content");
 	main.onmouseover = function(){
 		stopAutoPlay();
 	}
@@ -80,18 +80,18 @@ function slideImg(){
 
 //菜单
 for(var m=0,mlen=menuItems.length;m<mlen;m++){
-        menuItems[m].setAttribute("data-index",m);
-        menuItems[m].onmouseover = function(){
-            subMenu.className = "sub-menu";
-            var idx = this.getAttribute("data-index");
-            for(var j=0,jlen=subItems.length;j<jlen;j++){
-               subItems[j].style.display = 'none';
-               menuItems[j].style.background = "none";
-            }
-            subItems[idx].style.display = "block";
-            menuItems[idx].style.background = "rgba(0,0,0,0.1)";
-        }
+  menuItems[m].setAttribute("data-index",m);
+  menuItems[m].onmouseover = function(){
+  subMenu.className = "sub-menu";
+  var idx = this.getAttribute("data-index");
+  for(var j=0,jlen=subItems.length;j<jlen;j++){
+    subItems[j].style.display = 'none';
+    menuItems[j].style.background = "none";
     }
+    subItems[idx].style.display = "block";
+    menuItems[idx].style.background = "rgba(0,0,0,0.1)";
+   }
+}
 
     subMenu.onmouseover = function(){
         this.className = "sub-menu";
